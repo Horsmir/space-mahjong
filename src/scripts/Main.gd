@@ -65,7 +65,7 @@ func check_pieces():
             check_2 = [false, null]
             G.score += int(score_one * time_score / s_time)
             s_time = 0
-            print(G.score)
+            $MahjGUI.update_score()
         else:
             check_1[1].set_back_anim()
             check_2[1].set_back_anim()
