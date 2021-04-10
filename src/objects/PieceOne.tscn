@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://data/materials/Piece01.material" type="Material" id=1]
+[ext_resource path="res://data/models/piece_002.gltf" type="PackedScene" id=2]
+[ext_resource path="res://src/scripts/PieceDig.gd" type="Script" id=3]
+
+[node name="PieceOne" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+type_view = 2
+piece_mesh_path = NodePath("Cube002")
+
+[node name="Cube002" parent="." index="0"]
+material/0 = ExtResource( 1 )

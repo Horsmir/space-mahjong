@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/objects/Table.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/objects/Piece.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/scripts/Main.gd" type="Script" id=3]
+[ext_resource path="res://src/scenes/CameraGimbal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/objects/pieces-a/Piece_01a.tscn" type="PackedScene" id=9]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_energy = 0.5
+tonemap_mode = 2
+
+[node name="Main" type="Spatial"]
+script = ExtResource( 3 )
+piece_scene = ExtResource( 2 )
+score_one = 20
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 4.01863, 0 )
+visible = false
+fov = 49.8
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.74988, 0.247626, -0.613482, 0, 0.927308, 0.374299, 0.661574, -0.280679, 0.69537, 0, 12.0624, 0 )
+light_color = Color( 0.988235, 0.847059, 0.670588, 1 )
+light_energy = 0.7
+shadow_enabled = true
+shadow_contact = 0.05
+directional_shadow_split_1 = 0.07
+directional_shadow_split_2 = 0.1
+directional_shadow_split_3 = 0.3
+directional_shadow_blend_splits = true
+directional_shadow_normal_bias = 0.11
+
+[node name="Piece_01a" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="Table" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.260632, 0 )
+
+[node name="Pieces" type="Spatial" parent="."]
+
+[node name="CameraGimbal" parent="." instance=ExtResource( 4 )]
+mouse_sensitivity = 0.011

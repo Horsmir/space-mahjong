@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://data/materials/PieceA.material" type="Material" id=1]
+[ext_resource path="res://data/models/pieces-a/piece_a_04.gltf" type="PackedScene" id=2]
+
+[node name="Piece_04a" instance=ExtResource( 2 )]
+
+[node name="PieceMesh_04a" parent="." index="0"]
+material/0 = ExtResource( 1 )
